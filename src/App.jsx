@@ -296,12 +296,6 @@ function App() {
     pa: { mild: 'ਹਲਕਾ', moderate: 'ਮੱਧਮ', severe: 'ਗੰਭੀਰ' }
   };
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
-  fetch(`${API_URL}/api/analyze`, {
-    method: 'POST',
-    body: formData,
-  });
-
   const t = (key) => translations[language][key] || key;
 
   const handleImageUpload = (e) => {
@@ -341,7 +335,8 @@ function App() {
     formData.append('language', language);
 
     try {
-      const response = await fetch('http://localhost:8000/api/analyze', {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${API_URL}/api/analyze`, {
         method: 'POST',
         body: formData,
       });
@@ -359,6 +354,8 @@ function App() {
       setLoading(false);
     }
   };
+
+
 
   const getSeverityColor = (severity) => {
     switch (severity?.toLowerCase()) {
