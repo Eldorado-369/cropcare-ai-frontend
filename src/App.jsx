@@ -296,11 +296,11 @@ function App() {
     pa: { mild: 'ਹਲਕਾ', moderate: 'ਮੱਧਮ', severe: 'ਗੰਭੀਰ' }
   };
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
-fetch(`${API_URL}/api/analyze`, {
-  method: 'POST',
-  body: formData,
-});
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+  fetch(`${API_URL}/api/analyze`, {
+    method: 'POST',
+    body: formData,
+  });
 
   const t = (key) => translations[language][key] || key;
 
@@ -498,14 +498,6 @@ fetch(`${API_URL}/api/analyze`, {
               <div className="p-5 bg-gradient-to-r from-green-50 to-blue-50 border-2 border-green-200 rounded-lg">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex-1">
-                    {/* <h3 className="text-lg font-bold text-gray-800 mb-1 flex items-center gap-2">
-                      {result.is_healthy ?? (language === 'en' ? result.disease_name === 'Healthy Plant' : result.disease_name === 'स्वस्थ पौधा') ? (
-                        <CheckCircle className="w-6 h-6 text-green-600" />
-                      ) : (
-                        <AlertCircle className="w-6 h-6 text-orange-600" />
-                      )}
-                      {result.disease_name}
-                    </h3> */}
                     <h3 className="text-lg font-bold text-gray-800 mb-1 flex items-center gap-2">
                       {result.disease_name?.toLowerCase().includes('healthy') || 
                       result.disease_name === t('healthy') || 
