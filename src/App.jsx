@@ -335,7 +335,10 @@ function App() {
     formData.append('language', language);
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      if (!import.meta.env.VITE_API_URL) {
+        throw new Error('VITE_API_URL env var is required');
+      }
+      const API_URL = import.meta.env.VITE_API_URL;
       const response = await fetch(`${API_URL}/api/analyze`, {
         method: 'POST',
         body: formData,
