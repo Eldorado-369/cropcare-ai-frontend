@@ -34,10 +34,10 @@ Frontend built with React + Vite, styled with Tailwind CSS, and deployed on Verc
 
 ### Screenshots
 
-![Upload Interface](src\Screenshots\interface.png)  
-![Language Selection & Results (English)](src\Screenshots\english.png)  
-![Results in Hindi](src\Screenshots\hindi.png)  
-![Mobile View](src\Screenshots\mobile.png)
+![Upload Interface](src/Screenshots/interface.png)  
+![Language Selection & Results (English)](src/Screenshots/english.png)  
+![Results in Hindi](src/Screenshots/hindi.png)  
+![Mobile View](src/Screenshots/mobile.png)
 
 
 ### Quick Start (Local)
